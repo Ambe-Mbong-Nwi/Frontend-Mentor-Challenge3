@@ -1,0 +1,305 @@
+/*styles for desktop screens.*/
+body{
+    background-color: hsl(36, 100%, 99%);
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/*navigation is designed using flexbox*/
+nav{
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-left: 50px;         /*bring w into page just above img*/
+    padding-right: 0px;           /*place nav at extreme right*/
+    column-gap: 470px;   /*sending two groups of flex elements at extreme ends*/
+  
+}
+
+nav ul{
+    display: flex;
+    list-style-type: none;     /*no bullets for default list*/
+    padding-top: 75px;
+}
+
+nav li{
+    flex: 1 1 0;         /*grow, shrink, basis*/
+    margin-left: 30px;    /*to space elements of the list*/
+    font-size: 19px;
+}
+
+nav h1{
+    font-size: 60px;
+    font-weight: bolder;
+}
+
+nav a{
+    text-align: center;
+    text-decoration: none;       /*no default link styles*/
+}
+
+nav div .line{
+    display: none;
+}
+
+/*main section of the page is designed using css grid using 3 rows and 3 columns*/
+main{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 300px 200px 200px;
+    grid-gap: 20px;
+    max-width: 1000px;           /*max-width of grid*/
+    margin: 0 auto;
+    grid-template-areas:
+    "first first aside"
+    "begin one aside"
+    "four two three";
+}
+
+/*giving names to the grid template areas*/
+img.first{
+    grid-area: first;
+}
+
+p.begin{
+    grid-area: begin;
+}
+
+div.one{
+    grid-area: one;
+}
+
+div.two{
+    grid-area: two;
+}
+
+div.three{
+    grid-area: three;
+}
+
+div.four{
+    grid-area: four;
+}
+
+aside{
+    grid-area: aside;
+}
+
+/*largest image at row 1 occupying two columns for desktop layout*/
+img.first{               
+    width: 100%;            /*ie fill your asigned space 100%*/
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+/*same image as above for mobile layout*/
+img.second{
+    display: none;     /*do not display here*/
+}
+
+/*three elements on row 3*/
+.two, .three, .four{  
+    width: 100%;
+    display: grid;
+    grid-template-columns: 110px 190px;
+    grid-template-rows: 1;
+    grid-gap: 15px;
+    padding: 20px;
+    padding-left: 0;
+    margin-top: 25px;
+}
+
+.four img, .two img, .three img{
+    width: 100px;
+}
+
+.two h2, .three h2, .four h2{
+    margin: 0;
+    color: hsl(233, 8%, 79%);
+    font-size: 40px;
+}
+
+.two h3, .three h3, .four h3{
+    margin: 5px 0;
+    color: hsl(240, 100%, 5%);
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.two p, .three p, .four p{
+    margin: 10px 0;
+    color: hsl(236, 13%, 42%);
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+/*Large text on row 2 column 1*/
+.begin{
+    display: block;
+    margin: 50px;
+    margin-top: 0;
+    margin-left: 0;
+    padding-top: 5px;
+    font-size: 55px;
+    color: hsl(240, 100%, 5%);
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    line-height: 50px;
+}
+
+/*Text and button row 2 column 2*/
+.one {
+    display: block;
+    margin: 50px;
+    margin-left: 0px;
+    margin-top: 0;
+    line-height: 1.4em;
+    color: hsl(236, 13%, 42%);
+    font-size: 16px;
+}
+
+.one button{
+    border: 0;
+    margin: 18px;
+    padding: 17px 32px;
+    margin-left: 0;
+    color:hsl(36, 100%, 99%);
+    background-color: hsl(5, 85%, 63%);
+    letter-spacing: 0.5em;
+}
+
+/*long black aside on column 2 row2 and row3 */
+aside{
+    background-color: hsl(240, 100%, 5%);
+    padding: 20px;
+    margin-bottom:0;
+    padding-bottom: 40px;
+}
+
+aside h1{
+    color: hsl(35, 77%, 62%);
+    font-size: 50px;
+    margin: 8px 0;
+}
+
+aside div h2{
+    color: hsl(36, 100%, 99%);
+    font-size: 22px;
+    margin-top: 27px;
+}
+
+aside div p{
+    color:hsl(233, 8%, 79%);
+    font-size: 15px;
+    padding-bottom: 18px;
+    line-height: 1.6em;
+}
+
+#d1, #d2 {
+    border-bottom: 1px solid hsl(236, 13%, 42%);
+}
+
+/*Active state styles. ie changes to different elements when you hover on them*/
+.one button:hover{
+    background-color: hsl(240, 100%, 5%);
+}
+
+aside div h2:hover{
+    color: hsl(35, 77%, 62%);
+}
+
+nav a:hover{
+    color: hsl(5, 85%, 63%);
+}
+
+.two h3:hover, .three h3:hover, .four h3:hover{
+    color: hsl(5, 85%, 63%);
+}
+
+/*styles for mobile screens, width=375px*/
+@media (max-width: 375px) {
+
+    nav{
+        display: flex;
+        max-width: 375px;
+        height: 75px;
+        margin: 0;
+        column-gap: 180px;   /*sending two groups of flex elements at extreme ends*/
+    }
+
+    nav h1{
+        font-size: 40px;
+    }
+
+    nav .line{
+        padding-top: 20px;
+        padding-bottom: 0;
+        padding-left: 0;
+        margin-right: 0;
+    }
+
+    nav ul{
+        display: none;         /*displays only with desktop screen*/
+    }
+
+    
+    /*styles for the menu bar*/
+    nav div.line{
+        grid-area: line;
+    }
+
+    nav div{
+       margin-top: 20px;
+       padding: 0;
+       justify-self: right;
+       padding-right: 18px;
+    }
+
+    nav div p{
+        background-color:hsl(240, 100%, 5%);
+        width: 50px;
+        height: 2px;
+        padding: 0;
+        margin: 5px;
+    }
+    
+    /*styles for main section of page*/
+    main{
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: 300px 150px 220px 500px 150px 150px 150px;
+        grid-gap: 20px;
+        max-width: 375px;           /*max-width of grid*/
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 30px 10px;
+        padding-bottom: 30px;
+        grid-template-areas:
+        "first"
+        "begin"
+        "one"
+        "aside"
+        "four"
+        "two"
+        "three";
+    }
+
+    img.second{               
+        width: 100%;            /*ie fill your asigned space 100%*/
+        display: block;
+        padding: 0;
+        margin: 0 10px;
+    }
+    
+    /*same image as above for desktop layout*/
+    img.first{
+        display: none;     /*do not display here*/
+    } 
+
+    .begin{
+        grid-row: 2/3;     /*start at grid row 2 and end at row 3*/
+        font-size: 40px;
+    }
+}
